@@ -1,0 +1,30 @@
+# tasks file for vector-role
+- name: Install Vector
+  become: true
+  block:
+  - name: Vector | Get vector distrib
+    ansible.builtin.get_url:
+      url: https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm
+      dest: ./vector-{{ vector_version }}-1.x86_64.rpm
+      mode: 0755
+  - name: Vector | Install vector rpm
+    ansible.builtin.yum:
+      name: vector-{{ vector_version }}-1.x86_64.rpm
+      disable_gpg_check: true
+    notify: Start vector service
+  - name: Add vector user to systemd-journal group
+    user:
+      name: vector
+      groups: systemd-journal
+      append: true
+  - name: Vector | Update vector config
+    ansible.builtin.lineinfile:
+      path: /etc/default/vector
+      regexp: 'VECTOR_CONFIG='
+      line: VECTOR_CONFIG=/etc/vector/config.yaml
+  - name: Vector | Create vector config
+    ansible.builtin.copy:
+      dest: /etc/vector/config.yaml
+      mode: 0644
+      content: |
+        {{ vector_config | to_nice_yaml(indent=2) }}

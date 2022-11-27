@@ -1,0 +1,28 @@
+---
+vector_version: "0.25.1"
+clickhouse_host: 192.168.1.43
+clickhouse_user: logger
+clickhouse_password: logger
+clickhouse_host: clickhouse-01
+vector_packages:
+  - vector-server
+nginx_user: nginx
+vector_config:
+  sources:
+    simple_file:
+      type: file
+      include:
+        - /var/log/**/*.log
+      read_from: end
+      ignore_older_secs: 3600
+  sinks:
+    to_clickhouse:
+      type: clickhouse
+      inputs:
+        - simple_file
+      database: logs
+      endpoint: http://{{ clickhouse_host }}:8123
+      table: tbl_logs
+      compression: gzip
+      healthcheck: false
+      skip_unknown_fields: true
