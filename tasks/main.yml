@@ -11,7 +11,6 @@
     ansible.builtin.yum:
       name: vector-{{ vector_version }}-1.x86_64.rpm
       disable_gpg_check: true
-    notify: Start vector service
   - name: Add vector user to systemd-journal group
     user:
       name: vector
@@ -28,3 +27,8 @@
       mode: 0644
       content: |
         {{ vector_config | to_nice_yaml(indent=2) }}
+  - name: Start vector service
+    become: true
+    ansible.builtin.service:
+      name: vector
+      state: started
