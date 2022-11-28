@@ -44,4 +44,4 @@ BSD
 Author Information
 ------------------
 
-AleksTurbo for NENOLOGY Labs - HW 8.4
+AleksTurbo for NETOLOGY Labs - HW 8.4
