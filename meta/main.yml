@@ -2,7 +2,8 @@ galaxy_info:
   author: AleksTurbo
   description: Role for install and managing Vector 0.25.1 on centos-stream-8
   company: netology
-  role_name: vector
+  role_name: vector_role
+  namespace: netology
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value

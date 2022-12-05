@@ -1,3 +1,3 @@
-- name: vector_role
+- name: netology.vector_role
   src: https://github.com/AleksTurbo/vector-role.git
   scm: git
