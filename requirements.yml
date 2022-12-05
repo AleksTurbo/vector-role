@@ -1,0 +1,3 @@
+- name: vector_role
+  src: https://github.com/AleksTurbo/vector-role.git
+  scm: git

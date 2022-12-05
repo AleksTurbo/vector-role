@@ -1,47 +1,38 @@
 Role Name
 =========
 
-Vector service role for ansible
+A brief description of the role goes here.
 
 Requirements
 ------------
 
-CentOS 7-8
+Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
 
-vector_version: "0.25.1"
-clickhouse_host: 192.168.153.118
-clickhouse_user: logger
-clickhouse_password: logger
-vector_packages:
-  - vector-server
-nginx_user: nginx
+A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
 Dependencies
 ------------
 
-- python
-- ansible
-
+A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - name: Assert VECTOR role
-      hosts: vector
+    - hosts: servers
       roles:
-        - vector_role
+         - { role: username.rolename, x: 42 }
 
 License
 -------
 
-MIT
+BSD
 
 Author Information
 ------------------
 
-AleksTurbo for NETOLOGY Labs - HW 8.4
+An optional section for the role authors to include contact information, or a website (HTML is not allowed).
