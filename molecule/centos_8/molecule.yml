@@ -3,9 +3,6 @@ dependency:
   name: galaxy
 driver:
   name: docker
-  # options:
-  #   D: true
-  #   vv: true
 
 lint: |
   yamllint .
@@ -32,9 +29,6 @@ platforms:
       container: docker
 provisioner:
   name: ansible
-  # options:
-  #   vv: true
-  #   D: true
   inventory:
     links:
       hosts: ../resources/inventory/hosts.yml
@@ -44,4 +38,3 @@ provisioner:
     converge: ../resources/playbooks/converge.yml
 verifier:
   name: ansible
-
