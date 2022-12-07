@@ -16,10 +16,9 @@ systemctl status nginx
 systemctl status clickhouse-server
 
 ansible-galaxy role init lighthouse-role
-
-docker run --privile
-ged=True -v /home/aleksturbo/netology/ansible84/roles/vector_role:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin/bash
-docker run --privileged=True -v /home/aleksturbo/netology/ansible84/roles/vector_role:/opt/vector-role -w /opt/vector-role -it docker.io/pycontribs/centos:7 /bin/bash
+pip install ansible-galaxy
+docker run --privileged=True -v /home/aleksturbo/netology/vector_role:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin/bash
+docker run --privileged=True -v /home/aleksturbo/netology/vector_role:/opt/vector-role -w /opt/vector-role -it docker.io/pycontribs/centos:7 /bin/bash
 docker run --privileged=True -v /home/aleksturbo/netology/ansible84/roles/ansible-clickhouse:/opt/ansible-clickhouse -w /opt/ansible-clickhouse -it aragast/netology:latest /bin/bash
 
 python --version
@@ -38,3 +37,7 @@ sudo yum install ansible-lint
 python3 -m pip install molecule docker
 
 molecule test -s centos_7
+molecule matrix -s tox test
+--ignore-errors
+sudo yum install git
+ansible-galaxy install -r requirements.yml --ignore-errors
