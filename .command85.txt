@@ -3,6 +3,7 @@ ansible-galaxy role init vector_role
 molecule init scenario tox --driver-name=docker
 molecule init role mywebapp --driver-name=podman
 molecule init scenario podman --driver-name=podman
+molecule init scenario compatibility --driver-name=podman
 molecule init role podman --driver-name=podman
 molecule matrix -s tox test
 molecule matrix -s podman test
