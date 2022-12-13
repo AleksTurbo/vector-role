@@ -18,9 +18,12 @@ systemctl status clickhouse-server
 
 ansible-galaxy role init lighthouse-role
 pip install ansible-galaxy
-docker run --privileged=True -v /home/aleksturbo/netology/vector_role:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin/bash
+docker run --privileged=True -v /home/aleksturbo/netology/vector_role:/opt/vector_role -w /opt/vector_role -it aragast/netology:latest /bin/bash
 docker run --privileged=True -v /home/aleksturbo/netology/vector_role:/opt/vector-role -w /opt/vector-role -it docker.io/pycontribs/centos:7 /bin/bash
 docker run --privileged=True -v /home/aleksturbo/netology/ansible84/roles/ansible-clickhouse:/opt/ansible-clickhouse -w /opt/ansible-clickhouse -it aragast/netology:latest /bin/bash
+python3 -m pip install molecule[docker]
+python3 -m pip install molecule[podman]
+
 
 python --version
 ansible --version
@@ -33,6 +36,7 @@ sudo yum groupinstall @Development Tools
 sudo yum install python-pip
 sudo pip install --upgrade pip
 sudo pip install ansible-lint
+pip3 install ansible-galaxy
 sudo yum install epel-release
 sudo yum install ansible-lint
 python3 -m pip install molecule docker
@@ -42,3 +46,8 @@ molecule matrix -s tox test
 --ignore-errors
 sudo yum install git
 ansible-galaxy install -r requirements.yml --ignore-errors
+ansible-galaxy install -r requirements.yml -p .
+
+ansible-galaxy role install --force --roles-path /root/.cache/ansible-lint/b984a4/roles -vr requirements.yml
+
+dnf install urllib

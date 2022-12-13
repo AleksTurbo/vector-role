@@ -9,4 +9,4 @@
         dest: /tmp/hosts-from-controller
     - name: "Include vector_role"
       ansible.builtin.include_role:
-        name: "vector_role"
+        name: "netology.vector_role"
