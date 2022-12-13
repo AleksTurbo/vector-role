@@ -10,7 +10,7 @@ molecule matrix -s podman test
 ansible-galaxy install -r requirements.yml
 ansible-galaxy install -r requirements.yml -p roles
 
-molecule test -s centos7
+molecule test -s centos_7
 
 systemctl status vector
 systemctl status nginx

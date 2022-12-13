@@ -4,4 +4,4 @@
   tasks:
     - name: "Include vector_role"
       include_role:
-        name: "vector_role"
+        name: "netology.vector_role"
