@@ -21,7 +21,8 @@ pipeline {
                 sh 'whoami'
                 sh 'pwd'
                 sh 'ls -la'
-            }
+                }
+        }
         stage('Check install') {
             steps{
                 sh 'docker --version && ansible --version && ansible-lint --version && molecule --version'
