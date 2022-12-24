@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Molecule test'){
             steps{
-                sh 'molecule test -s compatibility --destroy always'
+                sh 'molecule test'
                 cleanWs()
             }
         }
