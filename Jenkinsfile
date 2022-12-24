@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Git') {
             steps{
-                git branch: 'main', credentialsId: 'fd6bde76-2dad-46bb-9a94-afb0f2858141', url: 'git@github.com:Ingvar78/vector-role.git'
+                git branch: 'main', credentialsId: 'b072f0ea-e67f-4322-8b8c-1d7a044e293a', url: 'git@github.com:AleksTurbo/vector-role.git'
             }
         }
         stage('Test'){
