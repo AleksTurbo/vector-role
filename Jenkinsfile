@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Check install') {
             steps{
-                // sh 'docker --version && ansible --version && ansible-lint --version && molecule --version'
+                sh 'docker --version && ansible --version && ansible-lint --version && molecule --version'
                 sh 'pwd'
             }
         }
