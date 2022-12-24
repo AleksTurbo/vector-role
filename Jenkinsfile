@@ -10,12 +10,20 @@ pipeline {
         }
         stage('Test'){
             steps{
-                echo 'Test steps'
+                echo 'Test message'
+                sh 'whoami'
+                sh 'pwd'
             }
         }
-        stage('Molecule install') {
+        stage('Soft install') {
             steps{
                 sh 'pip3 install --user "molecule==3.4.0" "molecule_docker" "ansible-lint<6.0.0" flake8'
+                sh 'whoami'
+                sh 'pwd'
+                sh 'ls -la'
+            }
+        stage('Check install') {
+            steps{
                 sh 'docker --version && ansible --version && ansible-lint --version && molecule --version'
                 sh 'pwd'
             }
