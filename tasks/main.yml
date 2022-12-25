@@ -7,6 +7,8 @@
       url: https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm
       dest: ./vector-{{ vector_version }}-1.x86_64.rpm
       mode: 0755
+  - name: LS
+    command: ls -la /etc/yum.repos.d/
   - name: CD /etc/yum.repos.d/
     command: cd /etc/yum.repos.d/
   - name: yum.repos.d-1
