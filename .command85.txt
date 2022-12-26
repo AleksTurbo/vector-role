@@ -31,6 +31,7 @@ ansible --version
 pip install ansible-lint
 pip3 install ansible-lint
 pip3 install molecule
+pip3 install urllib3
 
 sudo yum groupinstall @Development Tools
 sudo yum install python-pip
