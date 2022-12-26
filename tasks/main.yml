@@ -10,14 +10,14 @@
   - name: Get repos information
     ansible.builtin.shell: ls -la /etc/yum.repos.d/
     register: result
-  - name: CD /etc/yum.repos.d/
-    command: cd /etc/yum.repos.d/
-  - name: yum.repos.d-1
-    command: sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
-  - name: yum.repos.d-2
-    command: sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
   - name: yum update
     command: yum update -y
+  - name: Add docker repo
+    become_user: root
+    get_url:
+      url: https://download.docker.com/linux/centos/docker-ce.repo
+      dest: /etc/yum.repos.d/docker-ce.repo
+      validate_certs: false
   - name: Vector | Install vector rpm
     ansible.builtin.yum:
       name: vector-{{ vector_version }}-1.x86_64.rpm
