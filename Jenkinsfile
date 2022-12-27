@@ -20,6 +20,7 @@ pipeline {
                 sh 'pip3 install --user "molecule==3.6.1" "molecule_docker" "ansible-lint<6.0.0" flake8'
                 sh 'whoami'
                 sh 'pwd'
+                sh 'cat /etc/hostname'
                 sh 'ls -la'
                 }
         }
