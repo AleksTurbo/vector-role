@@ -1,4 +1,5 @@
 ansible-playbook -i ./inventory/prod.yml site.yml
+ansible -m ping test_servers -u root -kK
 ansible-galaxy role init vector_role
 molecule init scenario tox --driver-name=docker
 molecule init role mywebapp --driver-name=podman
@@ -18,6 +19,7 @@ systemctl status clickhouse-server
 
 ansible-galaxy role init lighthouse-role
 pip install ansible-galaxy
+python3 -m pip install --upgrade --user ansible
 docker run --privileged=True -v /home/aleksturbo/netology/vector_role:/opt/vector_role -w /opt/vector_role -it aragast/netology:latest /bin/bash
 docker run --privileged=True -v /home/aleksturbo/netology/vector_role:/opt/vector-role -w /opt/vector-role -it docker.io/pycontribs/centos:7 /bin/bash
 docker run --privileged=True -v /home/aleksturbo/netology/ansible84/roles/ansible-clickhouse:/opt/ansible-clickhouse -w /opt/ansible-clickhouse -it aragast/netology:latest /bin/bash
@@ -52,3 +54,8 @@ ansible-galaxy install -r requirements.yml -p .
 ansible-galaxy role install --force --roles-path /root/.cache/ansible-lint/b984a4/roles -vr requirements.yml
 
 dnf install urllib
+
+pip list | egrep "mole|docker|ansible"
+
+git ls-remote -h -- git@github.com:AleksTurbo/vector-role.git HEAD
+cat ~/.ssh/id_rsa.pub
