@@ -29,11 +29,14 @@ python3 -m pip install molecule[podman]
 
 python --version
 ansible --version
+molecule --version
 
 pip install ansible-lint
+pip3 install ansible
 pip3 install ansible-lint
 pip3 install molecule
 pip3 install urllib3
+pip3 install libselinux
 
 sudo yum groupinstall @Development Tools
 sudo yum install python-pip

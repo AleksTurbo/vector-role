@@ -17,7 +17,9 @@ pipeline {
         }
         stage('Soft install') {
             steps{
-                sh 'pip3 install --user "molecule==3.6.1" "molecule_docker" "ansible-lint<6.0.0" flake8'
+                sh 'pip3 install --user "molecule_docker" "ansible-lint<6.0.0" flake8'
+                // sh 'pip3 install --user "molecule==3.6.1"'
+                sh 'python3 -m pip install -U git+https://github.com/ansible-community/molecule'
                 sh 'whoami'
                 sh 'pwd'
                 sh 'cat /etc/hostname'
